@@ -1,0 +1,51 @@
+server:
+  port: 9100
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/minsu?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: root
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  redis:
+    host: ${REDIS_HOST:127.0.0.1}
+    port: ${REDIS_PORT:6379}
+    database: ${REDIS_DB:0}
+    password: ${REDIS_PASSWORD:}
+    timeout: 3000
+  mail:
+    host: smtp.qq.com
+    port: 587
+    username: ${MAIL_USERNAME:3367756499@qq.com}
+    password: ${MAIL_PASSWORD:jrldddeaiugdciej}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            trust: smtp.qq.com
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+jwt:
+  secret: minsu-secret-key-2026-very-long-secret
+  expiration: 86400000
+  header: Authorization
+  prefix: Bearer
+
+minio:
+  endpoint: http://localhost:9000
+  access-key: minioadmin
+  secret-key: minioadmin
+  bucket-name: upload
+
+mail:
+  from: ${MAIL_FROM:3367756499@qq.com}
+
